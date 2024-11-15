@@ -1,0 +1,21 @@
+# main.yml (Haupt-Playbook), um die Debian zu konfiegurieren
+---
+- name: Standart Konfiguration
+  hosts: all
+  become: true
+
+  vars_files:
+    - packages/paket-liste.yml
+
+  tasks:
+    - name: Die Paketen updaten
+      include_tasks: tasks/linux-update.yml
+
+    - name: Upgrade der installierten Pakete
+      include_tasks: tasks/linux-upgrade.yml
+
+#    - name: Standart Apps installieren
+#      include_tasks: tasks/apt-install.yml
+
+    - name: VM wird neuegestart, falls es neue Kernel Update gibt
+      include_tasks: tasks/linux-reboot.yml

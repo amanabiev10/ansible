@@ -1,0 +1,5 @@
+# Linux Debian Paketen upgreten
+- name: Upgrade alle Paketen
+  ansible.builtin.apt:
+    upgrade: yes
+  become: true

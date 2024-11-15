@@ -1,0 +1,8 @@
+# tasks/apt-install.yml
+---
+- name: Paketen installieren
+
+  ansible.builtin.package:
+    name: "{{ item.name }}{{ '=' + item.version if item.version is defined else '' }}"
+    state: "{{ item.state }}"
+  loop: "{{ packages }}"

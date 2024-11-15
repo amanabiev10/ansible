@@ -1,0 +1,16 @@
+# tasks/paket_liste.yml
+---
+packages:
+  - name: nginx
+    state: present
+  - name: mc
+    state: present
+  - name: postgresql 
+    state: present
+  - name: git
+    state: present
+  - name: filebeat
+    version: 8.15.2
+    state: present
+  - name: net-tools
+    state: present
